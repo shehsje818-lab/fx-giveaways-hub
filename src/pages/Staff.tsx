@@ -87,11 +87,18 @@ const staffMembers: StaffMember[] = [
   },
 ];
 
+const roleOrder = ["Owner", "Curator", "Deputy", "Admin"] as const;
+
+const groupedStaff = roleOrder.map((role) => ({
+  role,
+  members: staffMembers.filter((m) => m.role === role),
+}));
+
 const Staff = () => {
   const [selectedMember, setSelectedMember] = useState<StaffMember | null>(null);
 
   return (
-    <div className="max-w-[1200px] mx-auto px-6 py-16">
+    <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,24 +111,39 @@ const Staff = () => {
           Meet the people behind FakePixel X Giveaways.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {staffMembers.map((member, i) => (
-            <motion.div
-              key={member.id}
+        <div className="space-y-12">
+          {groupedStaff.map((group, groupIndex) => (
+            <motion.section
+              key={group.role}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              onClick={() => setSelectedMember(member)}
-              className="group cursor-pointer glass-card rounded-lg p-6 hover:bg-foreground/5 transition-colors"
+              transition={{ duration: 0.4, delay: groupIndex * 0.1 }}
             >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-16 h-16 rounded-full mb-4"
-              />
-              <h3 className="font-medium text-foreground mb-1">{member.name}</h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </motion.div>
+              <h2 className="text-lg font-medium text-foreground mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
+                {group.role}s
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {group.members.map((member, i) => (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: groupIndex * 0.1 + i * 0.05 }}
+                    onClick={() => setSelectedMember(member)}
+                    className="group cursor-pointer glass-card rounded-lg p-6 hover:bg-foreground/5 transition-colors"
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-16 h-16 rounded-full mb-4 object-cover"
+                    />
+                    <h3 className="font-medium text-foreground mb-1">{member.name}</h3>
+                    <p className="text-sm text-muted-foreground">{member.role}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
           ))}
         </div>
       </motion.div>
