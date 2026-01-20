@@ -90,7 +90,7 @@ const Index = () => {
                 {/* Main content mockup */}
                 <div className="md:col-span-2 bg-secondary/30 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-foreground">Active Giveaways</span>
+                    <span className="text-sm font-medium text-foreground">Giveaways We Host</span>
                     <div className="flex gap-2">
                       <div className="w-6 h-6 rounded bg-foreground/5 flex items-center justify-center">
                         <div className="w-3 h-3 rounded-sm bg-muted-foreground/30" />
@@ -102,17 +102,14 @@ const Index = () => {
                   </div>
                   <div className="space-y-2">
                     {[
-                      { title: "Monthly Premium Giveaway", status: "Active", time: "2h" },
-                      { title: "Discord Nitro Event", status: "Pending", time: "5h" },
-                      { title: "Gift Card Raffle", status: "Active", time: "1d" },
-                      { title: "Community Milestone Reward", status: "Draft", time: "3d" },
+                      { title: "FakePixel Skyblock In-Game Coins", icon: "🪙" },
+                      { title: "VIP, VIP+, MVP, MVP+ & Custom Ranks", icon: "⭐" },
+                      { title: "Discord Nitro", icon: "🎮" },
+                      { title: "Giftcards", icon: "🎁" },
                     ].map((item, i) => (
-                      <div key={i} className="flex items-center justify-between py-2 px-3 rounded bg-background/50 hover:bg-background/80 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-2 h-2 rounded-full ${item.status === 'Active' ? 'bg-green-500' : item.status === 'Pending' ? 'bg-yellow-500' : 'bg-muted-foreground/30'}`} />
-                          <span className="text-sm text-foreground">{item.title}</span>
-                        </div>
-                        <span className="text-xs text-muted-foreground">{item.time}</span>
+                      <div key={i} className="flex items-center gap-3 py-2 px-3 rounded bg-background/50 hover:bg-background/80 transition-colors">
+                        <span className="text-base">{item.icon}</span>
+                        <span className="text-sm text-foreground">{item.title}</span>
                       </div>
                     ))}
                   </div>
