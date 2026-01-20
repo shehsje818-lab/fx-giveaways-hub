@@ -11,47 +11,79 @@ interface StaffMember {
 }
 
 const staffMembers: StaffMember[] = [
+  // Owners
   {
     id: 1,
-    name: "Alex Johnson",
+    name: "sigmacat",
     role: "Owner",
-    image: "https://ui-avatars.com/api/?name=Alex+Johnson&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "Alex is the founder and owner of FakePixel X Giveaways. Responsible for overall management and strategic decisions.",
+    image: "https://cdn.discordapp.com/avatars/1050893860747870261/401f66beffceb77c241ae5d610267e96.webp?size=128",
+    description: "The owner of FakePixel Giveaways and professional Python and bot developer with more than 4 years of experience.",
   },
   {
     id: 2,
-    name: "Sarah Miller",
-    role: "Co-Owner",
-    image: "https://ui-avatars.com/api/?name=Sarah+Miller&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "Sarah assists with daily operations and community engagement. She helps coordinate giveaways and events.",
+    name: "darkwall",
+    role: "Owner",
+    image: "https://cdn.discordapp.com/avatars/1238914120179515402/d5c5717f8e15c440f30c184d8136ca35.webp?size=128",
+    description: "Circulator and operator of FakePixel Giveaways. A cybersecurity specialist who has worked for more than 3 companies including BDIX, the network provider of Bangladesh. Professional business handler and freelancer specializing in web development, Discord bots, Termux tools, Kali Linux tools, and web security applications.",
   },
+  // Curators
   {
     id: 3,
-    name: "Michael Chen",
-    role: "Administrator",
-    image: "https://ui-avatars.com/api/?name=Michael+Chen&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "Michael manages server settings, moderates discussions, and ensures community guidelines are followed.",
+    name: "Mr_Vari",
+    role: "Curator",
+    image: "https://cdn.discordapp.com/avatars/959812686961582120/a_fa400cd8d53f11dd99ef03d7e22c478e.gif?size=128",
+    description: "Admin of FakePixel, the main server that FXG is related to. FXG operates as a sub-server of FakePixel.",
   },
   {
     id: 4,
-    name: "Emily Davis",
-    role: "Moderator",
-    image: "https://ui-avatars.com/api/?name=Emily+Davis&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "Emily helps maintain order in the community, answers member questions, and assists with event coordination.",
+    name: "Not kaneku?",
+    role: "Curator",
+    image: "https://cdn.discordapp.com/avatars/1331299009536725216/a3793ab197d1dcbdfa89c26f5ecfbfdd.webp?size=128",
+    description: "One of the best and hardest working members of FXG. The oldest member of the community.",
   },
+  // Deputies
   {
     id: 5,
-    name: "David Wilson",
-    role: "Moderator",
-    image: "https://ui-avatars.com/api/?name=David+Wilson&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "David monitors community channels and helps resolve conflicts. He also assists with giveaway management.",
+    name: "Meow",
+    role: "Deputy",
+    image: "https://cdn.discordapp.com/avatars/984727935950946354/3d83d287f01fc084f4e197b27d2cceff.webp?size=128",
+    description: "A kitty that is cute and fluffy.",
   },
   {
     id: 6,
-    name: "Jessica Brown",
-    role: "Event Coordinator",
-    image: "https://ui-avatars.com/api/?name=Jessica+Brown&background=ffffff&color=141414&size=200&font-size=0.4&bold=true",
-    description: "Jessica plans and organizes community events and giveaways. She coordinates with sponsors and partners.",
+    name: "qmwn4962",
+    role: "Deputy",
+    image: "https://cdn.discordapp.com/avatars/1152639517954670744/21ccd5031f8bae4954d098eadc9a4c5c.webp?size=128",
+    description: "We don't know much about him. A mysterious guy.",
+  },
+  {
+    id: 7,
+    name: "ShahanCot",
+    role: "Deputy",
+    image: "https://cdn.discordapp.com/avatars/1413978411050733722/e26424582c84e7fb84897cc8e3e27e16.webp?size=128",
+    description: "One of the oldest members of FXG who helped grow this community.",
+  },
+  // Admins
+  {
+    id: 8,
+    name: "Afsank",
+    role: "Admin",
+    image: "https://cdn.discordapp.com/avatars/1218586070157889648/950484f786be3bb0de95238f367adf91.webp?size=128",
+    description: "One of the best and #3 giveaway holder of FXG. Has hosted more than 4B coins and 7B worth of items.",
+  },
+  {
+    id: 9,
+    name: "Akshram",
+    role: "Admin",
+    image: "https://cdn.discordapp.com/avatars/744466067564396616/b4cf04b82212c7ed18b34b6a45705cb3.webp?size=128",
+    description: "A helper of FakePixel and giveaways who has contributed a lot to the community.",
+  },
+  {
+    id: 10,
+    name: "sky",
+    role: "Admin",
+    image: "https://cdn.discordapp.com/avatars/905352681999188018/cec46c4e50f23189a44c1306138a6e4e.webp?size=128",
+    description: "Still grinding for Judgment Core to make his Terminator.",
   },
 ];
 
