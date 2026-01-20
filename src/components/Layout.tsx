@@ -122,6 +122,11 @@ const Layout = ({ children }: LayoutProps) => {
               © 2026 FakePixel X Giveaways
             </p>
           </div>
+          <div className="mt-6 text-center">
+            <p className="text-xs text-muted-foreground">
+              Made with ❤️ by <span className="text-foreground">darkwall</span>
+            </p>
+          </div>
         </div>
       </footer>
     </div>
