@@ -48,21 +48,6 @@ const Layout = ({ children }: LayoutProps) => {
               ))}
             </nav>
 
-            {/* Desktop Auth Buttons */}
-            <div className="hidden md:flex items-center gap-3">
-              <Link
-                to="/contact"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Log in
-              </Link>
-              <Link
-                to="/apply"
-                className="text-sm px-3 py-1.5 bg-foreground text-background rounded-md font-medium hover:bg-foreground/90 transition-colors"
-              >
-                Sign up
-              </Link>
-            </div>
 
             {/* Mobile Menu */}
             <Sheet open={open} onOpenChange={setOpen}>
@@ -97,22 +82,6 @@ const Layout = ({ children }: LayoutProps) => {
                     ))}
                   </nav>
 
-                  <div className="mt-auto p-4 border-t border-border flex flex-col gap-2">
-                    <Link
-                      to="/contact"
-                      onClick={() => setOpen(false)}
-                      className="text-sm text-center py-2.5 text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-foreground/5"
-                    >
-                      Log in
-                    </Link>
-                    <Link
-                      to="/apply"
-                      onClick={() => setOpen(false)}
-                      className="text-sm text-center py-2.5 bg-foreground text-background rounded-md font-medium hover:bg-foreground/90 transition-colors"
-                    >
-                      Sign up
-                    </Link>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
