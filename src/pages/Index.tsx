@@ -53,66 +53,22 @@ const Index = () => {
         >
           <div className="glass-card rounded-xl overflow-hidden">
             <div className="p-8 md:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Sidebar mockup */}
-                <div className="bg-secondary/50 rounded-lg p-4">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                    <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                    <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded bg-foreground/10" />
-                      <span className="text-sm text-foreground">FakePixel X</span>
-                    </div>
-                    <div className="ml-2 space-y-2">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <div className="w-3 h-3 rounded bg-muted-foreground/20" />
-                        Giveaways
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-foreground bg-foreground/5 rounded px-2 py-1">
-                        <div className="w-3 h-3 rounded bg-foreground/20" />
-                        Active Events
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <div className="w-3 h-3 rounded bg-muted-foreground/20" />
-                        Members
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <div className="w-3 h-3 rounded bg-muted-foreground/20" />
-                        Winners
-                      </div>
-                    </div>
-                  </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-lg font-medium text-foreground">Giveaways We Host</span>
                 </div>
-
-                {/* Main content mockup */}
-                <div className="md:col-span-2 bg-secondary/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-foreground">Giveaways We Host</span>
-                    <div className="flex gap-2">
-                      <div className="w-6 h-6 rounded bg-foreground/5 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-sm bg-muted-foreground/30" />
-                      </div>
-                      <div className="w-6 h-6 rounded bg-foreground/5 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-sm bg-muted-foreground/30" />
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { title: "FakePixel Skyblock In-Game Coins", icon: "🪙" },
+                    { title: "VIP, VIP+, MVP, MVP+ & Custom Ranks", icon: "⭐" },
+                    { title: "Discord Nitro", icon: "🎮" },
+                    { title: "Giftcards", icon: "🎁" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary/50 hover:bg-secondary/70 transition-colors">
+                      <span className="text-xl">{item.icon}</span>
+                      <span className="text-sm text-foreground">{item.title}</span>
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    {[
-                      { title: "FakePixel Skyblock In-Game Coins", icon: "🪙" },
-                      { title: "VIP, VIP+, MVP, MVP+ & Custom Ranks", icon: "⭐" },
-                      { title: "Discord Nitro", icon: "🎮" },
-                      { title: "Giftcards", icon: "🎁" },
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 py-2 px-3 rounded bg-background/50 hover:bg-background/80 transition-colors">
-                        <span className="text-base">{item.icon}</span>
-                        <span className="text-sm text-foreground">{item.title}</span>
-                      </div>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
