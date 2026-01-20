@@ -57,19 +57,19 @@ const Index = () => {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-lg font-medium text-foreground">Giveaways We Host</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <ul className="space-y-3">
                   {[
-                    { title: "FakePixel Skyblock In-Game Coins", icon: "🪙" },
-                    { title: "VIP, VIP+, MVP, MVP+ & Custom Ranks", icon: "⭐" },
-                    { title: "Discord Nitro", icon: "🎮" },
-                    { title: "Giftcards", icon: "🎁" },
+                    "FakePixel Skyblock In-Game Coins",
+                    "VIP, VIP+, MVP, MVP+ & Custom Ranks",
+                    "Discord Nitro",
+                    "Giftcards",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary/50 hover:bg-secondary/70 transition-colors">
-                      <span className="text-xl">{item.icon}</span>
-                      <span className="text-sm text-foreground">{item.title}</span>
-                    </div>
+                    <li key={i} className="flex items-center gap-3 text-sm text-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
+                      {item}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>

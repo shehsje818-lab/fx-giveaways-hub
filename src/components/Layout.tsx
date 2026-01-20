@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.webp";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -22,9 +23,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex items-center justify-between h-14">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-5 h-5 bg-foreground rounded-sm flex items-center justify-center">
-                <span className="text-background text-xs font-bold">F</span>
-              </div>
+              <img src={logo} alt="FXG Logo" className="w-6 h-6 rounded-sm object-cover" />
               <span className="text-sm font-semibold text-foreground">FakePixel X</span>
             </Link>
             
@@ -77,9 +76,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-foreground rounded-sm flex items-center justify-center">
-                <span className="text-background text-[10px] font-bold">F</span>
-              </div>
+              <img src={logo} alt="FXG Logo" className="w-4 h-4 rounded-sm object-cover" />
               <span className="text-xs text-muted-foreground">FakePixel X Giveaways</span>
             </div>
             <div className="flex items-center gap-6">
