@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
 
 const Contribution = () => {
   return (
@@ -32,7 +31,7 @@ const Contribution = () => {
             <h2 className="text-lg font-medium text-foreground mb-6">
               Ways to Contribute
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
                 "Participate actively in community discussions",
                 "Report issues or suggest improvements",
@@ -41,18 +40,10 @@ const Contribution = () => {
                 "Follow community guidelines and maintain a positive environment",
                 "Provide feedback on giveaways and events",
               ].map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-5 h-5 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 text-foreground" />
-                  </div>
-                  <span className="text-foreground/80">{item}</span>
-                </motion.li>
+                <li key={i} className="flex items-start gap-3 text-foreground/80">
+                  <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
+                  {item}
+                </li>
               ))}
             </ul>
           </section>
