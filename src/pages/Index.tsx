@@ -17,7 +17,7 @@ const Index = () => {
           className="max-w-3xl"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6">
-            FakePixel X is a purpose-built platform for community giveaways
+            Welcome to FakePixel X Giveaways Official Page
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
@@ -123,38 +123,6 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Features Section */}
-      <section className="border-t border-border py-24">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[
-              {
-                title: "Community First",
-                description: "Built by the community, for the community. We prioritize transparency and fairness in every giveaway."
-              },
-              {
-                title: "Verified Winners",
-                description: "Every winner is verified and announced publicly. No fake results, no manipulated outcomes."
-              },
-              {
-                title: "Easy Participation",
-                description: "Simple entry process through Discord. No complex requirements or hidden conditions."
-              },
-            ].map((feature, i) => (
-              <div key={i} className="group">
-                <h3 className="text-lg font-medium text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
