@@ -59,23 +59,12 @@ const Contribution = () => {
 
           <section>
             <h2 className="text-xl font-medium text-foreground mb-4">
-              Donation Information
+              By Sponsoring
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              While donations are not required, they help support the community 
-              and allow us to host larger giveaways. If you wish to donate, 
-              please contact the staff team through our Discord server.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-medium text-foreground mb-4">
-              Sponsorship Opportunities
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              If you represent a brand or organization and would like to sponsor 
-              a giveaway, please reach out to our team via the Contact page. 
-              We welcome partnerships that benefit our community.
+              You can get more support and cool roles by sponsoring giveaways! 
+              Reach out to our team via the Contact page to learn more about 
+              sponsorship opportunities and exclusive benefits.
             </p>
           </section>
         </div>
