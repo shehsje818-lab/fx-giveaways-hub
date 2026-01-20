@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Index = () => {
   return (
     <div>
@@ -5,20 +7,40 @@ const Index = () => {
         Welcome to FakePixel X Giveaways Official Page
       </h1>
 
-      <div className="space-y-4">
-        <p className="text-foreground">
+      <div className="space-y-6">
+        <p className="text-foreground leading-relaxed">
           FakePixel X Giveaways is a community dedicated to hosting giveaways 
           and events for our members. We strive to create a fair and enjoyable 
           experience for everyone.
         </p>
 
-        <div className="border border-border bg-card p-4">
-          <h2 className="mb-2 font-semibold text-foreground">Quick Links</h2>
-          <ul className="list-inside list-disc space-y-1 text-foreground">
-            <li>View our <a href="/staff" className="text-primary underline">Staff Team</a></li>
-            <li>Learn how to <a href="/contribution" className="text-primary underline">Contribute</a></li>
-            <li><a href="/apply" className="text-primary underline">Apply</a> to join our staff</li>
-            <li><a href="/contact" className="text-primary underline">Contact</a> us via Discord</li>
+        <div className="border border-border bg-card p-5 rounded shadow-sm">
+          <h2 className="mb-3 font-semibold text-foreground">Quick Links</h2>
+          <ul className="list-inside list-disc space-y-2 text-foreground">
+            <li>
+              View our{" "}
+              <Link to="/staff" className="text-primary hover:underline transition-colors">
+                Staff Team
+              </Link>
+            </li>
+            <li>
+              Learn how to{" "}
+              <Link to="/contribution" className="text-primary hover:underline transition-colors">
+                Contribute
+              </Link>
+            </li>
+            <li>
+              <Link to="/apply" className="text-primary hover:underline transition-colors">
+                Apply
+              </Link>{" "}
+              to join our staff
+            </li>
+            <li>
+              <Link to="/contact" className="text-primary hover:underline transition-colors">
+                Contact
+              </Link>{" "}
+              us via Discord
+            </li>
           </ul>
         </div>
       </div>
