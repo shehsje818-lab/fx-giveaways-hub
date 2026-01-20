@@ -34,7 +34,7 @@
     --input: 220 13% 87%;
     --ring: 210 70% 40%;
 
-    --radius: 0;
+    --radius: 0.25rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 220 13% 18%;
