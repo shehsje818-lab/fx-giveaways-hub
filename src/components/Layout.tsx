@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="flex items-center justify-between h-14">
             <Link to="/" className="flex items-center gap-2">
               <img src={logo} alt="FXG Logo" className="w-6 h-6 rounded-sm object-cover" />
-              <span className="text-sm font-semibold text-foreground">FakePixel X</span>
+              <span className="text-sm font-semibold text-foreground">FxG</span>
             </Link>
             
             <nav className="hidden md:flex items-center gap-1">
