@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.webp";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
+import { InteractiveGrid } from "./InteractiveGrid";
 const navItems = [
   { path: "/", label: "Home" },
   { path: "/staff", label: "Staff" },
@@ -22,7 +22,10 @@ const Layout = ({ children }: LayoutProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-background text-foreground relative">
+      {/* Interactive grid background */}
+      <InteractiveGrid />
+      
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-14">
@@ -89,7 +92,7 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </header>
 
-      <main className="flex-1 pt-14">
+      <main className="flex-1 pt-14 relative z-10">
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0, y: 10 }}
@@ -100,7 +103,7 @@ const Layout = ({ children }: LayoutProps) => {
         </motion.div>
       </main>
 
-      <footer className="border-t border-border py-8">
+      <footer className="border-t border-border py-8 relative z-10 bg-background">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
             <div className="flex items-center gap-2">
