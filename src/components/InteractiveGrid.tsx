@@ -20,7 +20,7 @@ const CELL_SIZE = 80;
 export const InteractiveGrid = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [cells, setCells] = useState<Map<string, Cell>>(new Map());
-  const [isMouseDown, setIsMouseDown] = useState(false);
+  const isMouseDownRef = useRef(false);
 
   const getRandomColor = () => COLORS[Math.floor(Math.random() * COLORS.length)];
 
@@ -31,7 +31,7 @@ export const InteractiveGrid = () => {
 
     const rect = containerRef.current.getBoundingClientRect();
     const x = Math.floor((clientX - rect.left) / CELL_SIZE);
-    const y = Math.floor((clientY - rect.top) / CELL_SIZE);
+    const y = Math.floor((clientY - rect.top + window.scrollY) / CELL_SIZE);
     const key = getCellKey(x, y);
 
     setCells((prev) => {
@@ -47,29 +47,41 @@ export const InteractiveGrid = () => {
   }, []);
 
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (isMouseDown) {
+    (e: MouseEvent) => {
+      if (isMouseDownRef.current) {
         activateCell(e.clientX, e.clientY);
       }
     },
-    [isMouseDown, activateCell]
+    [activateCell]
   );
 
   const handleMouseDown = useCallback(
-    (e: React.MouseEvent) => {
-      setIsMouseDown(true);
+    (e: MouseEvent) => {
+      isMouseDownRef.current = true;
       activateCell(e.clientX, e.clientY);
     },
     [activateCell]
   );
 
   const handleMouseUp = useCallback(() => {
-    setIsMouseDown(false);
+    isMouseDownRef.current = false;
   }, []);
 
-  const handleMouseLeave = useCallback(() => {
-    setIsMouseDown(false);
-  }, []);
+  // Use document-level event listeners for reliable tracking
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.addEventListener("mousedown", handleMouseDown);
+    container.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      container.removeEventListener("mousedown", handleMouseDown);
+      container.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [handleMouseDown, handleMouseMove, handleMouseUp]);
 
   // Fade out cells over time
   useEffect(() => {
@@ -95,10 +107,9 @@ export const InteractiveGrid = () => {
   useEffect(() => {
     const updateGridSize = () => {
       if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
         setGridSize({
-          cols: Math.ceil(rect.width / CELL_SIZE) + 1,
-          rows: Math.ceil(rect.height / CELL_SIZE) + 1,
+          cols: Math.ceil(window.innerWidth / CELL_SIZE) + 1,
+          rows: Math.ceil(document.documentElement.scrollHeight / CELL_SIZE) + 1,
         });
       }
     };
@@ -111,15 +122,11 @@ export const InteractiveGrid = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 overflow-hidden pointer-events-auto z-0"
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      className="fixed inset-0 overflow-hidden z-0"
       style={{ cursor: "crosshair" }}
     >
       {/* Grid lines */}
-      <svg className="absolute inset-0 w-full h-full">
+      <svg className="absolute inset-0 w-full h-full" style={{ minHeight: "100vh" }}>
         {/* Vertical lines */}
         {Array.from({ length: gridSize.cols }).map((_, i) => (
           <line
@@ -152,7 +159,7 @@ export const InteractiveGrid = () => {
       {Array.from(cells.values()).map((cell) => (
         <div
           key={getCellKey(cell.x, cell.y)}
-          className="absolute transition-opacity duration-100"
+          className="absolute pointer-events-none"
           style={{
             left: cell.x * CELL_SIZE,
             top: cell.y * CELL_SIZE,
@@ -160,6 +167,7 @@ export const InteractiveGrid = () => {
             height: CELL_SIZE,
             backgroundColor: cell.color,
             opacity: cell.opacity * 0.8,
+            transition: "opacity 100ms ease-out",
           }}
         />
       ))}
